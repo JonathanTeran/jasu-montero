@@ -4,13 +4,25 @@ Sitio web profesional para **Jasú Montero** (cantante, presentadora y actriz ec
 HTML + CSS + JS puro, sin frameworks ni build. Basta abrir `index.html` o servirlo
 con cualquier servidor estático.
 
+## Dos versiones de diseño
+
+| Versión | URL | Estilo |
+|---------|-----|--------|
+| **V1 Clásica** | `/` | Glam editorial (Bodoni, dorado) con 3 temas: noche / claro / blanco |
+| **V2 Neón** | `/v2/` | Neón-noir de club: duotono, slider de hero, collage rasgado, agenda de shows. Acento conmutable rosa / cian |
+
+Cada versión enlaza a la otra desde el pie de página.
+
 ## Estructura
 
 ```
-index.html              Página única con todas las secciones
-assets/css/style.css    Estilos y los 3 temas de color
-assets/js/main.js       Temas, menú, animaciones, videos, formulario
-assets/img/             Imágenes (ver nota abajo)
+index.html              V1 — página única con todas las secciones
+assets/css/style.css    V1 — estilos y los 3 temas de color
+assets/js/main.js       V1 — temas, menú, animaciones, videos, formulario
+v2/index.html           V2 — versión neón (usa las mismas imágenes)
+v2/style.css            V2 — estilos neón + acentos rosa/cian
+v2/main.js              V2 — slider, acento, video destacado, booking
+assets/img/             Imágenes compartidas (ver nota abajo)
 ```
 
 ## Temas de color

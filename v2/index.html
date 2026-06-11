@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es" data-accent="rosa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jasú Montero — V2 Neón · Cantante · Presentadora · Actriz</title>
+  <meta name="description" content="Jasú Montero — versión neón. Música, shows, videos, noticias y booking de la artista ecuatoriana.">
+  <meta property="og:title" content="Jasú Montero — La voz de la rockola">
+  <meta property="og:image" content="../assets/img/jasu-retrato.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+<!-- Lienzo oscuro flotando sobre el degradado de fondo -->
+<div class="canvas">
+
+  <!-- ╔════════════ NAV ════════════╗ -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__brand">#JASÚ<br>MONTERO</a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#bio">Biografía</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#musica">Música</a>
+      <a href="#videos">Videos</a>
+      <a href="#noticias">Noticias</a>
+      <a href="#galeria">Galería</a>
+    </nav>
+
+    <div class="nav__right">
+      <!-- Acento neón: rosa / cian -->
+      <div class="accent-switch" role="group" aria-label="Color de acento">
+        <button data-accent="rosa" class="is-active" aria-label="Neón rosa"></button>
+        <button data-accent="cian" aria-label="Neón cian"></button>
+      </div>
+      <a href="#booking" class="nav__cta">Booking</a>
+      <button class="nav__burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ╔════════════ HERO / SLIDER ════════════╗ -->
+  <section class="hero" id="inicio">
+    <div class="hero__photo" aria-hidden="true">
+      <!-- REEMPLAZAR: foto oficial (duotono aplicado por CSS) -->
+      <img src="../assets/img/jasu-retrato.jpg" alt="">
+      <span class="hero__tint hero__tint--a"></span>
+      <span class="hero__tint hero__tint--b"></span>
+    </div>
+
+    <span class="hero__script" aria-hidden="true">Jasú</span>
+
+    <!-- Indicador vertical estilo studio -->
+    <div class="hero__progress" aria-hidden="true">
+      <span class="hero__progress-n" id="slideNum">01</span>
+      <span class="hero__progress-bar"><i id="slideBar"></i></span>
+      <span class="hero__progress-total">03</span>
+    </div>
+
+    <div class="hero__slides" id="heroSlides">
+      <article class="hero-slide is-active" data-tag="Cantante">
+        <p class="hero-slide__tag">— Cantante</p>
+        <h1 class="hero-slide__title">LA VOZ<br>DE LA<br>ROCKOLA</h1>
+        <p class="hero-slide__text">“Me Siento Viva”, “Sola”, “Egoísta”, “Antídoto”…
+        la música nacional con actitud, despecho y sello propio.</p>
+        <a href="#musica" class="btn-neon">Escuchar ahora</a>
+      </article>
+
+      <article class="hero-slide" data-tag="Presentadora">
+        <p class="hero-slide__tag">— Presentadora</p>
+        <h1 class="hero-slide__title">CADA<br>MAÑANA<br>EN TU CASA</h1>
+        <p class="hero-slide__text">Desde 2016 en <strong>De Casa en Casa</strong> por TC Televisión,
+        entrando en vivo a los hogares de todo el Ecuador.</p>
+        <a href="#agenda" class="btn-neon">Ver agenda</a>
+      </article>
+
+      <article class="hero-slide" data-tag="Actriz">
+        <p class="hero-slide__tag">— Actriz &amp; Show</p>
+        <h1 class="hero-slide__title">25 AÑOS<br>SIEMPRE<br>EN ESCENA</h1>
+        <p class="hero-slide__text">De <strong>Kandela &amp; Son</strong> a la telenovela y el teatro:
+        un cuarto de siglo de escenarios, luces y aplausos.</p>
+        <a href="#bio" class="btn-neon">Conocer mi historia</a>
+      </article>
+    </div>
+
+    <div class="hero__nav">
+      <button id="slidePrev" aria-label="Anterior">‹</button>
+      <button id="slideNext" aria-label="Siguiente">›</button>
+      <span class="hero__dots" id="slideDots" aria-hidden="true"></span>
+    </div>
+
+    <div class="hero__socials">
+      <a href="https://www.facebook.com/jasumontero" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+      <a href="https://www.instagram.com/jasumontero_/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+      <a href="https://www.youtube.com/@JasuMonteroOficial" target="_blank" rel="noopener" aria-label="YouTube">yt</a>
+      <a href="https://www.tiktok.com/@jasumontero_" target="_blank" rel="noopener" aria-label="TikTok">tk</a>
+    </div>
+  </section>
+
+  <!-- ╔════════════ BIOGRAFÍA (collage rasgado) ════════════╗ -->
+  <div class="tear" aria-hidden="true"></div>
+
+  <section class="bio" id="bio">
+    <h2 class="ransom" aria-label="Biografía">
+      <span>B</span><span>i</span><span>o</span><span>g</span><span>r</span><span>a</span><span>f</span><span>í</span><span>a</span>
+    </h2>
+
+    <div class="bio__grid">
+      <figure class="polaroid">
+        <span class="polaroid__tape polaroid__tape--l" aria-hidden="true"></span>
+        <span class="polaroid__tape polaroid__tape--r" aria-hidden="true"></span>
+        <!-- REEMPLAZAR: foto de archivo / infancia -->
+        <img src="../assets/img/jasu-retrato.jpg" alt="Jasú Montero, retrato">
+        <figcaption>Susana Janeth Montero P. · Guayaquil</figcaption>
+      </figure>
+
+      <div class="bio__text">
+        <p class="bio__lead">Jasú Montero, nacida en <mark>Guayaquil</mark>, es cantante,
+        actriz y presentadora. Se subió a un escenario antes de cumplir los veinte
+        con <strong>Kandela &amp; Son</strong>… y nunca más se bajó.</p>
+
+        <ul class="bio__milestones">
+          <li><b>2000</b> Kandela &amp; Son — la agrupación que marcó época</li>
+          <li><b>2007</b> Caiga Quien Caiga · Canal Uno</li>
+          <li><b>2009</b> Telenovela “Kandela” — Jasú Cervantes</li>
+          <li><b>2012</b> Vamos con Todo · RTS</li>
+          <li><b>2014</b> Las Tr3s · Universal Music</li>
+          <li><b>2016</b> De Casa en Casa · TC — hasta hoy</li>
+        </ul>
+
+        <p class="bio__quote">“El escenario no es un trabajo: <em>es mi casa</em>.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════ AGENDA / SHOWS ════════════╗ -->
+  <section class="agenda" id="agenda">
+    <header class="sec-head">
+      <p class="sec-head__kicker">No te lo pierdas</p>
+      <h2 class="sec-head__title">PRÓXIMAS <em>fechas</em></h2>
+    </header>
+
+    <div class="agenda__grid">
+      <!-- Fechas de ejemplo: actualizar con la agenda real -->
+      <article class="gig">
+        <div class="gig__media">
+          <img src="../assets/img/video-D9d9pfnqhno.jpg" alt="" loading="lazy">
+          <span class="gig__price">TV</span>
+        </div>
+        <div class="gig__body">
+          <p class="gig__date">Lunes a viernes · Mañanas</p>
+          <h3>De Casa en Casa</h3>
+          <p class="gig__where">TC Televisión · En vivo</p>
+          <a class="btn-neon btn-neon--sm" href="https://www.tctelevision.com/" target="_blank" rel="noopener">Ver señal</a>
+        </div>
+      </article>
+
+      <article class="gig gig--hot">
+        <div class="gig__media">
+          <img src="../assets/img/video-5gxNZZWFoOA.jpg" alt="" loading="lazy">
+          <span class="gig__price">$25</span>
+        </div>
+        <div class="gig__body">
+          <p class="gig__date">Sáb 18 Jul 2026 · 20h00</p>
+          <h3>Noche de Rockola</h3>
+          <p class="gig__where">Teatro Centro de Arte · Guayaquil</p>
+          <a class="btn-neon btn-neon--sm" href="#booking">Reservar</a>
+        </div>
+      </article>
+
+      <article class="gig">
+        <div class="gig__media">
+          <img src="../assets/img/video-Hvkt6ABrq0g.jpg" alt="" loading="lazy">
+          <span class="gig__price">Live</span>
+        </div>
+        <div class="gig__body">
+          <p class="gig__date">Jueves · 21h00</p>
+          <h3>IG Live con fans</h3>
+          <p class="gig__where">@jasumontero_ · Instagram</p>
+          <a class="btn-neon btn-neon--sm" href="https://www.instagram.com/jasumontero_/" target="_blank" rel="noopener">Seguir</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ╔════════════ MÚSICA / ÁLBUM ════════════╗ -->
+  <section class="album" id="musica">
+    <header class="sec-head">
+      <p class="sec-head__kicker">Lo último</p>
+      <h2 class="sec-head__title">LA <em>música</em></h2>
+    </header>
+
+    <div class="album__grid">
+      <figure class="album__cover">
+        <img src="../assets/img/video-D9d9pfnqhno.jpg" alt="Portada: Me Siento Viva" loading="lazy">
+        <span class="album__disc" aria-hidden="true"></span>
+        <figcaption>
+          <strong>Me Siento Viva</strong>
+          <span>Rockola Fina · Sencillos 2024–2026</span>
+        </figcaption>
+      </figure>
+
+      <ol class="player">
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=D9d9pfnqhno" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Me Siento Viva</span><span class="player__meta">Rockola Fina</span></a></li>
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=3-o8DnsMhy4" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Sola</span><span class="player__meta">Despecho</span></a></li>
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=-uuzJPT3FAs" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Egoísta</span><span class="player__meta">Sencillo</span></a></li>
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=LR_SjZJI3ZE" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Antídoto</span><span class="player__meta">Chicha Light</span></a></li>
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=Hvkt6ABrq0g" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Dolencias</span><span class="player__meta">Nativa</span></a></li>
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=0Na_xJMcoZY" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Todo es Plata <small>ft. La Chicho</small></span><span class="player__meta">Sorongo</span></a></li>
+        <li><a class="player__row" href="https://www.youtube.com/watch?v=5gxNZZWFoOA" target="_blank" rel="noopener"><span class="player__play">▶</span><span class="player__name">Añoranzas de Mi Tierra</span><span class="player__meta">Medley</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ╔════════════ VIDEO DESTACADO ════════════╗ -->
+  <section class="featured" id="videos">
+    <header class="sec-head">
+      <p class="sec-head__kicker">YouTube oficial</p>
+      <h2 class="sec-head__title">VIDEO <em>destacado</em></h2>
+    </header>
+
+    <div class="featured__stage">
+      <div class="featured__player" id="featuredPlayer" data-video="D9d9pfnqhno">
+        <img src="../assets/img/video-D9d9pfnqhno.jpg" alt="Video destacado: Me Siento Viva" id="featuredThumb">
+        <button class="featured__play" id="featuredPlay" aria-label="Reproducir video destacado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+        </button>
+      </div>
+      <p class="featured__caption" id="featuredCaption">Me Siento Viva — Video oficial</p>
+
+      <div class="featured__strip" id="featuredStrip">
+        <button data-video="D9d9pfnqhno" data-title="Me Siento Viva — Video oficial" class="is-active"><img src="../assets/img/video-D9d9pfnqhno.jpg" alt="Me Siento Viva"></button>
+        <button data-video="3-o8DnsMhy4" data-title="Sola — Video oficial"><img src="../assets/img/video-3-o8DnsMhy4.jpg" alt="Sola"></button>
+        <button data-video="-uuzJPT3FAs" data-title="Egoísta — Video oficial"><img src="../assets/img/video--uuzJPT3FAs.jpg" alt="Egoísta"></button>
+        <button data-video="Hvkt6ABrq0g" data-title="Dolencias — Nativa"><img src="../assets/img/video-Hvkt6ABrq0g.jpg" alt="Dolencias"></button>
+        <button data-video="I5m-soOpREM" data-title="Sola — versión Despecho"><img src="../assets/img/video-I5m-soOpREM.jpg" alt="Sola versión despecho"></button>
+      </div>
+
+      <a class="featured__all" href="https://www.youtube.com/@JasuMonteroOficial" target="_blank" rel="noopener">Ver todos los videos ›</a>
+    </div>
+  </section>
+
+  <!-- ╔════════════ NOTICIAS ════════════╗ -->
+  <section class="news" id="noticias">
+    <header class="sec-head">
+      <p class="sec-head__kicker">Blog</p>
+      <h2 class="sec-head__title">ÚLTIMAS <em>noticias</em></h2>
+    </header>
+
+    <div class="news__list">
+      <!-- Notas de ejemplo: reemplazar por el blog real -->
+      <article class="news-item">
+        <img src="../assets/img/video-D9d9pfnqhno.jpg" alt="" loading="lazy">
+        <div>
+          <p class="news-item__meta">Música · 12 May 2026</p>
+          <h3><a href="#">Detrás de cámaras: así nació el video de “Me Siento Viva”</a></h3>
+          <p>Tres locaciones, un vestido imposible y una madrugada entera de rodaje. La historia completa…</p>
+          <a class="news-item__more" href="#">Leer más ›</a>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="../assets/img/video-5gxNZZWFoOA.jpg" alt="" loading="lazy">
+        <div>
+          <p class="news-item__meta">Carrera · 28 Abr 2026</p>
+          <h3><a href="#">25 años de escenarios: lo que Kandela &amp; Son me enseñó</a></h3>
+          <p>Del primer ensayo a los estadios llenos. Un repaso íntimo por el grupo que me cambió la vida…</p>
+          <a class="news-item__more" href="#">Leer más ›</a>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="../assets/img/video-Hvkt6ABrq0g.jpg" alt="" loading="lazy">
+        <div>
+          <p class="news-item__meta">TV · 9 Abr 2026</p>
+          <h3><a href="#">Una mañana conmigo en “De Casa en Casa”</a></h3>
+          <p>Llamado a las 5h00, maquillaje, pauta y al aire. Lo que no se ve del matinal de TC…</p>
+          <a class="news-item__more" href="#">Leer más ›</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ╔════════════ GALERÍA ════════════╗ -->
+  <section class="gallery" id="galeria">
+    <header class="sec-head">
+      <p class="sec-head__kicker">En el escenario</p>
+      <h2 class="sec-head__title">LA <em>galería</em></h2>
+    </header>
+
+    <div class="gallery__mosaic">
+      <!-- REEMPLAZAR: fotos oficiales de shows y sesiones -->
+      <img src="../assets/img/jasu-retrato.jpg" alt="Jasú Montero — sesión editorial" loading="lazy" class="tall">
+      <img src="../assets/img/video-D9d9pfnqhno.jpg" alt="Rodaje de Me Siento Viva" loading="lazy">
+      <img src="../assets/img/video-3-o8DnsMhy4.jpg" alt="Video Sola" loading="lazy">
+      <img src="../assets/img/video--uuzJPT3FAs.jpg" alt="Video Egoísta" loading="lazy">
+      <img src="../assets/img/video-Hvkt6ABrq0g.jpg" alt="Video Dolencias" loading="lazy" class="wide">
+      <img src="../assets/img/video-5gxNZZWFoOA.jpg" alt="Añoranzas de Mi Tierra" loading="lazy">
+      <img src="../assets/img/video-0Na_xJMcoZY.jpg" alt="Todo es Plata" loading="lazy">
+      <img src="../assets/img/video-I5m-soOpREM.jpg" alt="Sola versión despecho" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ╔════════════ BOOKING ════════════╗ -->
+  <section class="booking" id="booking">
+    <div class="booking__inner">
+      <div class="booking__copy">
+        <p class="sec-head__kicker">Contrataciones</p>
+        <h2 class="sec-head__title">BOOKING <em>&amp; prensa</em></h2>
+        <p>Shows, eventos privados, publicidad o entrevistas:
+        escríbenos y el equipo responde en menos de 48 horas.</p>
+        <p class="booking__mail">contrataciones@jasumontero.com</p>
+      </div>
+
+      <!-- Sin backend: abre el correo del visitante. Ver README para Formspree. -->
+      <form class="booking__form" id="bookingForm" data-mailto="contrataciones@jasumontero.com">
+        <input type="text" name="nombre" placeholder="Tu nombre" required aria-label="Nombre" autocomplete="name">
+        <input type="email" name="email" placeholder="Tu correo" required aria-label="Correo" autocomplete="email">
+        <textarea name="mensaje" rows="4" placeholder="Cuéntanos sobre tu evento…" required aria-label="Mensaje"></textarea>
+        <button type="submit" class="btn-neon btn-neon--solid">Enviar solicitud</button>
+        <p class="booking__note" id="bookingNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ╔════════════ FOOTER ════════════╗ -->
+  <footer class="footer">
+    <p class="footer__brand">#JASÚ MONTERO</p>
+    <nav class="footer__nav" aria-label="Pie de página">
+      <a href="#inicio">Inicio</a><a href="#bio">Bio</a><a href="#agenda">Agenda</a>
+      <a href="#musica">Música</a><a href="#videos">Videos</a><a href="#galeria">Galería</a>
+      <a href="#booking">Booking</a>
+    </nav>
+    <div class="footer__socials">
+      <a href="https://www.instagram.com/jasumontero_/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/jasumontero" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@JasuMonteroOficial" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@jasumontero_" target="_blank" rel="noopener">TikTok</a>
+    </div>
+    <p class="footer__legal">© <span id="year">2026</span> Jasú Montero · Guayaquil, Ecuador · <a href="../index.html">Ver versión clásica</a></p>
+  </footer>
+
+</div><!-- /canvas -->
+
+<template id="ytTemplate">
+  <iframe src="" title="Reproductor de YouTube" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</template>
+
+<script src="main.js" defer></script>
+</body>
+</html>
