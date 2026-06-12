@@ -225,29 +225,81 @@
   pinActs();
   addEventListener("resize", () => { track.style.transform = ""; pinActs(); }, { passive: true });
 
-  /* ── ACTO II: tornamesa ─────────────────────────────── */
+  /* ── ACTO II: tornamesa con audio real ──────────────── */
   const vinyl = $("#vinyl");
   const vinylLabel = $("#vinylLabel");
   const tonearm = $("#tonearm");
   const deckEq = $("#deckEq");
   const nowTitle = $("#nowTitle");
   const watchClip = $("#watchClip");
-  let currentTrack = { video: "D9d9pfnqhno", title: "Me Siento Viva" };
+  const openSpotify = $("#openSpotify");
+  let currentTrack = { video: null, spotify: "5ENSrENQXPd5vJRsTKC2mO" };
+
+  // Un solo reproductor para los adelantos de 30 s
+  const player = new Audio();
+  player.preload = "none";
+
+  const deckPlayState = (on) => {
+    vinyl.classList.toggle("is-playing", on);
+    tonearm.classList.toggle("is-playing", on);
+    deckEq.classList.toggle("is-on", on);
+  };
+
+  // El evento pause llega en tarea aparte: solo apaga el giro si la
+  // pista activa es de audio (las de solo-video giran "en seco")
+  player.addEventListener("ended", () => { if (!currentTrack.video) deckPlayState(false); });
+  player.addEventListener("pause", () => { if (!currentTrack.video) deckPlayState(false); });
+  player.addEventListener("play", () => deckPlayState(true));
+
+  const selectTrack = (row) => {
+    $$(".setlist__row").forEach((r) => r.classList.remove("is-active"));
+    row.classList.add("is-active");
+    currentTrack = {
+      video: row.dataset.video || null,
+      spotify: row.dataset.spotify || null,
+      title: $("span", row).textContent,
+    };
+    vinylLabel.src = row.dataset.cover;
+    nowTitle.textContent = currentTrack.title;
+
+    // Botones según la pista
+    watchClip.hidden = !currentTrack.video;
+    openSpotify.hidden = !currentTrack.spotify;
+    if (currentTrack.spotify) {
+      openSpotify.href = `https://open.spotify.com/track/${currentTrack.spotify}`;
+    }
+  };
 
   $$(".setlist__row").forEach((row) =>
     row.addEventListener("click", () => {
-      $$(".setlist__row").forEach((r) => r.classList.remove("is-active"));
-      row.classList.add("is-active");
-      currentTrack = { video: row.dataset.video, title: $("span", row).textContent };
-      vinylLabel.src = row.dataset.cover;
-      nowTitle.textContent = currentTrack.title;
-      vinyl.classList.add("is-playing");
-      tonearm.classList.add("is-playing");
-      deckEq.classList.add("is-on");
+      const sameTrack = row.classList.contains("is-active");
+
+      // Mismo tema sonando → pausa (la aguja sube)
+      if (sameTrack && !player.paused) {
+        player.pause();
+        return;
+      }
+
+      selectTrack(row);
+
+      if (row.dataset.audio) {
+        if (!sameTrack) {
+          player.src = row.dataset.audio;
+          player.currentTime = 0;
+        }
+        player.play().catch(() => deckPlayState(true)); // sin audio permitido: al menos gira
+      } else {
+        // Pista solo con videoclip: gira en seco, sin sonido
+        player.pause();
+        deckPlayState(true);
+      }
     })
   );
 
-  watchClip.addEventListener("click", () => openVideo(currentTrack.video));
+  watchClip.addEventListener("click", () => {
+    player.pause();
+    if (currentTrack.video) openVideo(currentTrack.video);
+  });
 
   /* ── ACTO III: TV retro ─────────────────────────────── */
   const tvScreen = $("#tvScreen");

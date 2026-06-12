@@ -10,7 +10,11 @@ con cualquier servidor estático.
 |---------|-----|--------|
 | **V1 Clásica** | `/` | Glam editorial (Bodoni, dorado) con 3 temas: noche / claro / blanco |
 | **V2 Neón** | `/v2/` | Neón-noir de club: duotono, slider de hero, collage rasgado, agenda de shows. Acento conmutable rosa / cian |
-| **V7 La Función** | `/v7/` | Experiencia teatral interactiva: telón de apertura con conteo, reflector que sigue al cursor, polvo dorado, carrera en tira horizontal fijada al scroll, tornamesa de vinilo con brazo y set list, TV retro con cambio de canales (estática incluida), galería 3D arrastrable, boletos con código de barras, pase backstage y créditos de cine |
+| **V7 La Función** | `/v7/` | Experiencia teatral interactiva: telón de apertura con conteo, reflector que sigue al cursor, polvo dorado, carrera en tira horizontal fijada al scroll, tornamesa de vinilo **que suena** (17 pistas: 10 con adelanto de audio real de 30 s del catálogo de Spotify + 7 con videoclip), TV retro con cambio de canales (estática incluida), galería 3D arrastrable, boletos con código de barras, pase backstage y créditos de cine |
+
+> ⚠️ Los adelantos de audio (`assets/audio/preview-*.mp3`) son los clips públicos
+> de 30 s de Spotify, usados **solo como maqueta**. Antes del lanzamiento oficial,
+> reemplazarlos por audio licenciado por la artista o enlazar solo a Spotify.
 
 Cada versión enlaza a las otras desde el pie de página.
 (Las carpetas `v3/`–`v6/` son borradores locales de otra sesión de trabajo, aún sin publicar.)

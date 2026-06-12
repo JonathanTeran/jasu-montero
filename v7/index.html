@@ -151,30 +151,48 @@
       <header class="sec-head">
         <p class="kicker">Acto II · Set list</p>
         <h2 class="title-xl">Ponla en el <em>tocadiscos</em></h2>
-        <p class="sec-head__sub">Elige una canción: el vinilo gira, la aguja baja y el videoclip queda listo.</p>
+        <p class="sec-head__sub">Elige una canción: el vinilo gira, la aguja baja y <strong>suena un adelanto real de 30 segundos</strong>. Las que tienen videoclip, también se ven.</p>
       </header>
 
       <div class="deck__grid">
         <div class="deck__table" id="turntable">
           <div class="vinyl" id="vinyl">
-            <img class="vinyl__label" id="vinylLabel" src="../assets/img/video-D9d9pfnqhno.jpg" alt="">
+            <img class="vinyl__label" id="vinylLabel" src="../assets/img/cover-5ENSrENQXPd5vJRsTKC2mO.jpg" alt="">
             <span class="vinyl__hole" aria-hidden="true"></span>
           </div>
           <span class="tonearm" id="tonearm" aria-hidden="true"><i></i></span>
-          <p class="deck__nowplaying"><span class="eq" id="deckEq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span> <span id="nowTitle">Me Siento Viva</span></p>
-          <button class="btn-gala btn-gala--sm" id="watchClip" data-magnet>Ver videoclip ▶</button>
+          <p class="deck__nowplaying"><span class="eq" id="deckEq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span> <span id="nowTitle">Pensarás en Mí</span></p>
+          <div class="deck__actions">
+            <button class="btn-gala btn-gala--sm" id="watchClip" data-magnet hidden>Ver videoclip ▶</button>
+            <a class="btn-spotify" id="openSpotify" href="https://open.spotify.com/track/5ENSrENQXPd5vJRsTKC2mO" target="_blank" rel="noopener" data-magnet>Oír completa en Spotify ↗</a>
+          </div>
         </div>
 
+        <!-- Audio: adelantos de 30 s del catálogo público de Spotify (solo demo) -->
         <ol class="setlist" id="setlist">
-          <li><button class="setlist__row is-active" data-video="D9d9pfnqhno" data-cover="../assets/img/video-D9d9pfnqhno.jpg"><b>01</b><span>Me Siento Viva</span><small>Rockola Fina</small></button></li>
-          <li><button class="setlist__row" data-video="3-o8DnsMhy4" data-cover="../assets/img/video-3-o8DnsMhy4.jpg"><b>02</b><span>Sola</span><small>Despecho</small></button></li>
-          <li><button class="setlist__row" data-video="-uuzJPT3FAs" data-cover="../assets/img/video--uuzJPT3FAs.jpg"><b>03</b><span>Egoísta</span><small>Sencillo</small></button></li>
-          <li><button class="setlist__row" data-video="LR_SjZJI3ZE" data-cover="../assets/img/video-LR_SjZJI3ZE.jpg"><b>04</b><span>Antídoto</span><small>Chicha Light</small></button></li>
-          <li><button class="setlist__row" data-video="Hvkt6ABrq0g" data-cover="../assets/img/video-Hvkt6ABrq0g.jpg"><b>05</b><span>Dolencias</span><small>Nativa</small></button></li>
-          <li><button class="setlist__row" data-video="0Na_xJMcoZY" data-cover="../assets/img/video-0Na_xJMcoZY.jpg"><b>06</b><span>Todo es Plata</span><small>ft. La Chicho</small></button></li>
-          <li><button class="setlist__row" data-video="5gxNZZWFoOA" data-cover="../assets/img/video-5gxNZZWFoOA.jpg"><b>07</b><span>Añoranzas de Mi Tierra</span><small>Medley</small></button></li>
+          <li><button class="setlist__row is-active" data-audio="../assets/audio/preview-5ENSrENQXPd5vJRsTKC2mO.mp3" data-spotify="5ENSrENQXPd5vJRsTKC2mO" data-cover="../assets/img/cover-5ENSrENQXPd5vJRsTKC2mO.jpg"><b>01</b><span>Pensarás en Mí</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-1rrhXsqoV1PThkzeXIDqwC.mp3" data-spotify="1rrhXsqoV1PThkzeXIDqwC" data-cover="../assets/img/cover-1rrhXsqoV1PThkzeXIDqwC.jpg"><b>02</b><span>No Pido Revancha</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-3gxCRVsxucTW6cRqtmPitv.mp3" data-spotify="3gxCRVsxucTW6cRqtmPitv" data-cover="../assets/img/cover-3gxCRVsxucTW6cRqtmPitv.jpg"><b>03</b><span>Ella o Yo · Mi Rival · La Guayabita</span><small>ft. Jenny Rosero</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-646jgrttEv6iDk1CYdEQwc.mp3" data-spotify="646jgrttEv6iDk1CYdEQwc" data-cover="../assets/img/cover-646jgrttEv6iDk1CYdEQwc.jpg"><b>04</b><span>Mix Puro Despecho</span><small>Medley</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-5lbm3JBqY7RzsP1nCIHbTt.mp3" data-spotify="5lbm3JBqY7RzsP1nCIHbTt" data-cover="../assets/img/cover-5lbm3JBqY7RzsP1nCIHbTt.jpg"><b>05</b><span>Las Leyes del Amor</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-3Vmql8dvAooHyyM9e5IhOz.mp3" data-spotify="3Vmql8dvAooHyyM9e5IhOz" data-cover="../assets/img/cover-3Vmql8dvAooHyyM9e5IhOz.jpg"><b>06</b><span>17 Años</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-5gxmOB9Da7h5KBkdiJ6qnP.mp3" data-spotify="5gxmOB9Da7h5KBkdiJ6qnP" data-cover="../assets/img/cover-5gxmOB9Da7h5KBkdiJ6qnP.jpg"><b>07</b><span>Faltándome Tú</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-4vXv7IL3TFHIUBAyX0VLAs.mp3" data-spotify="4vXv7IL3TFHIUBAyX0VLAs" data-cover="../assets/img/cover-4vXv7IL3TFHIUBAyX0VLAs.jpg"><b>08</b><span>Te Quiero, Te Quiero</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-7vYjZiM6zJnZ8QVIsdT60y.mp3" data-spotify="7vYjZiM6zJnZ8QVIsdT60y" data-cover="../assets/img/cover-7vYjZiM6zJnZ8QVIsdT60y.jpg"><b>09</b><span>La Pena de Mi Viejo</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-audio="../assets/audio/preview-28wF7ECVL7RbqwxLyugJZh.mp3" data-spotify="28wF7ECVL7RbqwxLyugJZh" data-cover="../assets/img/cover-28wF7ECVL7RbqwxLyugJZh.jpg"><b>10</b><span>Yo Te Espero</span><small>Rockola</small></button></li>
+          <li><button class="setlist__row" data-video="D9d9pfnqhno" data-cover="../assets/img/video-D9d9pfnqhno.jpg"><b>11</b><span>Me Siento Viva</span><small>Videoclip</small></button></li>
+          <li><button class="setlist__row" data-video="3-o8DnsMhy4" data-cover="../assets/img/video-3-o8DnsMhy4.jpg"><b>12</b><span>Sola</span><small>Videoclip</small></button></li>
+          <li><button class="setlist__row" data-video="-uuzJPT3FAs" data-cover="../assets/img/video--uuzJPT3FAs.jpg"><b>13</b><span>Egoísta</span><small>Videoclip</small></button></li>
+          <li><button class="setlist__row" data-video="LR_SjZJI3ZE" data-cover="../assets/img/video-LR_SjZJI3ZE.jpg"><b>14</b><span>Antídoto</span><small>Videoclip</small></button></li>
+          <li><button class="setlist__row" data-video="Hvkt6ABrq0g" data-cover="../assets/img/video-Hvkt6ABrq0g.jpg"><b>15</b><span>Dolencias</span><small>Videoclip</small></button></li>
+          <li><button class="setlist__row" data-video="0Na_xJMcoZY" data-cover="../assets/img/video-0Na_xJMcoZY.jpg"><b>16</b><span>Todo es Plata</span><small>ft. La Chicho</small></button></li>
+          <li><button class="setlist__row" data-video="5gxNZZWFoOA" data-cover="../assets/img/video-5gxNZZWFoOA.jpg"><b>17</b><span>Añoranzas de Mi Tierra</span><small>Videoclip</small></button></li>
         </ol>
       </div>
+
+      <p class="deck__spotify-cta">Catálogo completo en
+        <a href="https://open.spotify.com/artist/5JsuwL8y8HYp6xwAgBlFYM" target="_blank" rel="noopener">Spotify · Jasú Montero ↗</a>
+      </p>
     </section>
 
     <!-- ════════ ACTO III · LA TV ════════ -->
