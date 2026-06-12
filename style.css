@@ -1542,7 +1542,7 @@ body.show-on .ltr {
 
 .credits__nav a:hover { color: var(--ambar); }
 
-.credits__legal { font-size: .8rem; color: var(--humo); }
+.credits__legal { font-size: .8rem; color: var(--humo); margin-top: .35rem; }
 
 .credits__legal a { color: var(--ambar); }
 
@@ -1563,27 +1563,58 @@ body.show-on .ltr {
 
 .credits__spark { color: var(--ambar); width: 11px; height: 11px; }
 
-/* Crédito AmePhia Software Solutions */
+/* Crédito AmePhia Software Solutions — protagonista */
+.credits__made {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  font-size: .92rem;
+  color: var(--humo);
+}
+
 .credits__dev {
   display: inline-flex;
   align-items: center;
-  gap: .38em;
-  color: var(--marfil) !important;
-  font-weight: 600;
-  letter-spacing: .02em;
-  vertical-align: -4px;
-  transition: opacity .3s;
+  gap: .5em;
+  padding: .5em 1.25em .5em 1em;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 155, 242, .45);
+  background: linear-gradient(160deg, rgba(31, 123, 255, .16), rgba(47, 155, 242, .05) 60%);
+  box-shadow: 0 0 22px -6px rgba(47, 155, 242, .55),
+              inset 0 1px 0 rgba(255, 255, 255, .08);
+  transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
+  animation: amephiaGlow 3s ease-in-out infinite;
 }
 
-.credits__dev:hover { opacity: .8; }
+.credits__dev:hover {
+  transform: translateY(-3px) scale(1.04);
+  border-color: rgba(98, 196, 248, .9);
+  box-shadow: 0 8px 34px -8px rgba(47, 155, 242, .85);
+  animation-play-state: paused;
+}
+
+@keyframes amephiaGlow {
+  0%, 100% { box-shadow: 0 0 18px -7px rgba(47, 155, 242, .5), inset 0 1px 0 rgba(255, 255, 255, .08); }
+  50%      { box-shadow: 0 0 30px -5px rgba(47, 155, 242, .8), inset 0 1px 0 rgba(255, 255, 255, .08); }
+}
 
 .credits__dev-mark {
-  width: 19px;
-  height: 18px;
-  filter: drop-shadow(0 0 8px rgba(47, 155, 242, .45));
+  width: 26px;
+  height: 24px;
+  filter: drop-shadow(0 0 9px rgba(47, 155, 242, .55));
 }
 
-.credits__dev b { font-weight: 700; }
+.credits__dev-name {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: .015em;
+  background: linear-gradient(95deg, #fdfdfd, #9ed5fb 55%, #2f9bf2);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
 
 @keyframes latido {
   0%, 100% { transform: scale(1); }
