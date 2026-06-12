@@ -379,19 +379,35 @@ section { padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.2rem, 5vw, 4rem); position
   background: var(--negro);
 }
 
-/* Foto a sangre completa con tratamiento de tarima */
+/* Foto centrada (más pequeña y clara) sobre fondo difuminado */
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: var(--negro);
+}
+
+/* Eco difuminado de la misma foto para llenar los costados */
+.hero__bg::before {
+  content: "";
+  position: absolute;
+  inset: -50px;
+  background: url("assets/img/jasu-retrato.jpg") center 18% / cover no-repeat;
+  filter: blur(46px) brightness(.34) saturate(.8);
 }
 
 .hero__bg img {
-  width: 100%;
+  position: relative;
   height: 100%;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+  display: block;
   object-fit: cover;
-  object-position: 36% 12%;
-  filter: sepia(.3) brightness(.74) contrast(1.08) saturate(.9);
+  object-position: 50% 20%;
+  filter: sepia(.1) brightness(.96) contrast(1.03);
+  -webkit-mask: radial-gradient(115% 96% at 50% 46%, #000 52%, transparent 79%);
+          mask: radial-gradient(115% 96% at 50% 46%, #000 52%, transparent 79%);
 }
 
 .hero__bg::after {
@@ -399,10 +415,10 @@ section { padding: clamp(4.5rem, 9vw, 7.5rem) clamp(1.2rem, 5vw, 4rem); position
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(8, 5, 6, .78) 0%, transparent 26%),
-    linear-gradient(to top, var(--negro) 4%, transparent 38%),
-    linear-gradient(100deg, rgba(8, 5, 6, .5), transparent 45%),
-    radial-gradient(120% 90% at 50% 40%, transparent 45%, rgba(8, 5, 6, .88) 100%);
+    linear-gradient(to bottom, rgba(8, 5, 6, .82) 0%, transparent 26%),
+    linear-gradient(to top, var(--negro) 6%, transparent 32%),
+    linear-gradient(to left, rgba(8, 5, 6, .62) 0%, transparent 44%),
+    radial-gradient(130% 100% at 50% 40%, transparent 55%, rgba(8, 5, 6, .68) 100%);
 }
 
 .hero__dust {
@@ -557,27 +573,6 @@ body.show-on .ltr {
   margin-top: 1.8rem;
 }
 
-/* Oscuridad + reflector que sigue al cursor */
-.hero__spot {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-  background:
-    radial-gradient(circle clamp(260px, 36vw, 520px) at var(--sx, 50%) var(--sy, 42%),
-      color-mix(in srgb, var(--ambar) 9%, transparent), transparent 70%),
-    radial-gradient(circle clamp(320px, 42vw, 600px) at var(--sx, 50%) var(--sy, 42%),
-      transparent 0 62%, rgba(5, 3, 4, .72) 100%);
-  transition: opacity .6s;
-}
-
-@media (pointer: coarse) {
-  .hero__spot {
-    background:
-      radial-gradient(circle 46vw at 50% 40%, color-mix(in srgb, var(--ambar) 8%, transparent), transparent 70%),
-      radial-gradient(circle 52vw at 50% 40%, transparent 0 60%, rgba(5, 3, 4, .7) 100%);
-  }
-}
 
 /* ── ACTO I · Tira horizontal fijada ───────────────────────────── */
 .acts { height: 420vh; padding: 0; }
@@ -770,27 +765,27 @@ body.show-on .ltr {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .08);
 }
 
-/* Brazo del tocadiscos */
+/* Brazo del tocadiscos (corto y bien metido sobre el disco) */
 .tonearm {
   position: absolute;
-  top: 26px;
-  right: 30px;
-  width: 14px;
-  height: 46%;
-  transform-origin: 50% 12px;
-  transform: rotate(-32deg);
+  top: 34px;
+  right: 52px;
+  width: 12px;
+  height: 30%;
+  transform-origin: 50% 10px;
+  transform: rotate(-34deg);
   transition: transform .9s var(--ease);
   z-index: 3;
 }
 
-.tonearm.is-playing { transform: rotate(-6deg); }
+.tonearm.is-playing { transform: rotate(-8deg); }
 
 .tonearm::before {
   content: "";
   position: absolute;
   top: 0; left: 50%;
   transform: translateX(-50%);
-  width: 26px; height: 26px;
+  width: 21px; height: 21px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #5c5258, #211b1f 70%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, .6);
@@ -798,10 +793,10 @@ body.show-on .ltr {
 
 .tonearm i {
   position: absolute;
-  top: 12px; left: 50%;
+  top: 10px; left: 50%;
   transform: translateX(-50%);
-  width: 5px;
-  height: calc(100% - 12px);
+  width: 4px;
+  height: calc(100% - 10px);
   background: linear-gradient(to bottom, #8d8189, #4a4046);
   border-radius: 4px;
 }
@@ -809,9 +804,9 @@ body.show-on .ltr {
 .tonearm i::after {
   content: "";
   position: absolute;
-  bottom: -16px; left: 50%;
-  transform: translateX(-50%) rotate(12deg);
-  width: 14px; height: 26px;
+  bottom: -11px; left: 50%;
+  transform: translateX(-50%) rotate(14deg);
+  width: 11px; height: 20px;
   border-radius: 4px;
   background: linear-gradient(160deg, var(--ambar), var(--ambar-2));
 }
@@ -1162,6 +1157,56 @@ body.show-on .ltr {
   border-radius: 14px;
 }
 
+/* Mosaico: cuadrados grandes, medianos y pequeños */
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 160px;
+  grid-auto-flow: dense;
+  gap: 12px;
+  max-width: 1100px;
+  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+}
+
+.mosaic__item {
+  position: relative;
+  border: none;
+  padding: 0;
+  background: var(--carbon);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mosaic__item--big { grid-column: span 2; grid-row: span 2; }
+.mosaic__item--tall { grid-row: span 2; }
+.mosaic__item--wide { grid-column: span 2; }
+
+.mosaic__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(.25) brightness(.88);
+  transition: filter .4s, transform .55s var(--ease);
+}
+
+.mosaic__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  pointer-events: none;
+  transition: border-color .35s, box-shadow .35s;
+}
+
+.mosaic__item:hover img { filter: none; transform: scale(1.05); }
+
+.mosaic__item:hover::after {
+  border-color: var(--ambar);
+  box-shadow: inset 0 0 30px -14px var(--ambar);
+}
+
 /* ── ACTO V · Boletos ──────────────────────────────────────────── */
 .tickets { background: var(--negro); }
 
@@ -1495,6 +1540,28 @@ body.show-on .ltr {
 
 .credits__legal b { color: var(--marfil); }
 
+.credits__heart,
+.credits__spark {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+}
+
+.credits__heart {
+  color: var(--rojo);
+  animation: latido 1.6s ease-in-out infinite;
+}
+
+.credits__spark { color: var(--ambar); width: 11px; height: 11px; }
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  12%      { transform: scale(1.25); }
+  24%      { transform: scale(1); }
+  36%      { transform: scale(1.18); }
+}
+
 /* ── Lightbox ──────────────────────────────────────────────────── */
 .lightbox { position: fixed; inset: 0; z-index: 280; display: grid; place-items: center; }
 
@@ -1600,7 +1667,14 @@ body.show-on .ltr {
   .ring { width: 170px; height: 240px; }
   .ring__item { transform: rotateY(calc(var(--i) * 45deg)) translateZ(250px); }
 
-  .hero__bg img { object-position: 50% 8%; }
+  .hero__bg img {
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 8%;
+    -webkit-mask: none;
+            mask: none;
+    filter: sepia(.12) brightness(.9) contrast(1.04);
+  }
   .hero__bg::after {
     background:
       linear-gradient(to bottom, rgba(8, 5, 6, .8), transparent 24%),
@@ -1621,6 +1695,8 @@ body.show-on .ltr {
   .setlist { grid-template-columns: 1fr; }
   .setlist li:nth-child(-n+2) .setlist__row { border-top: none; }
   .setlist li:first-child .setlist__row { border-top: 1px solid var(--line); }
+
+  .mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; gap: 9px; }
 }
 
 @media (max-width: 520px) {

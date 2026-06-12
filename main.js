@@ -82,24 +82,7 @@
     });
   }
 
-  /* ── Reflector del hero sigue al cursor ─────────────── */
   const hero = $(".hero");
-  const spot = $("#heroSpot");
-  if (finePointer && !reduced) {
-    let sx = 50, sy = 42, tx = 50, ty = 42;
-    hero.addEventListener("mousemove", (e) => {
-      const r = hero.getBoundingClientRect();
-      tx = ((e.clientX - r.left) / r.width) * 100;
-      ty = ((e.clientY - r.top) / r.height) * 100;
-    }, { passive: true });
-    (function spotLoop() {
-      sx += (tx - sx) * 0.08;
-      sy += (ty - sy) * 0.08;
-      spot.style.setProperty("--sx", `${sx}%`);
-      spot.style.setProperty("--sy", `${sy}%`);
-      requestAnimationFrame(spotLoop);
-    })();
-  }
 
   /* ── Polvo dorado (canvas) ──────────────────────────── */
   const dustCanvas = $("#dust");
@@ -189,7 +172,7 @@
 
   /* ── Aparición al scroll ────────────────────────────── */
   const rvTargets = $$(
-    ".sec-head, .era, .deck__table, .setlist li, .tv, .ticket, .backstage__copy, .pass, .ring-stage"
+    ".sec-head, .era, .deck__table, .setlist li, .tv, .ticket, .backstage__copy, .pass, .ring-stage, .mosaic__item"
   );
   rvTargets.forEach((t) => t.classList.add("rv"));
   const groups = new Map();
@@ -231,9 +214,7 @@
   const tonearm = $("#tonearm");
   const deckEq = $("#deckEq");
   const nowTitle = $("#nowTitle");
-  const watchClip = $("#watchClip");
   const openSpotify = $("#openSpotify");
-  let currentTrack = { video: null, spotify: "5ENSrENQXPd5vJRsTKC2mO" };
 
   // Un solo reproductor para los adelantos de 30 s
   const player = new Audio();
@@ -245,29 +226,16 @@
     deckEq.classList.toggle("is-on", on);
   };
 
-  // El evento pause llega en tarea aparte: solo apaga el giro si la
-  // pista activa es de audio (las de solo-video giran "en seco")
-  player.addEventListener("ended", () => { if (!currentTrack.video) deckPlayState(false); });
-  player.addEventListener("pause", () => { if (!currentTrack.video) deckPlayState(false); });
+  player.addEventListener("ended", () => deckPlayState(false));
+  player.addEventListener("pause", () => deckPlayState(false));
   player.addEventListener("play", () => deckPlayState(true));
 
   const selectTrack = (row) => {
     $$(".setlist__row").forEach((r) => r.classList.remove("is-active"));
     row.classList.add("is-active");
-    currentTrack = {
-      video: row.dataset.video || null,
-      spotify: row.dataset.spotify || null,
-      title: $("span", row).textContent,
-    };
     vinylLabel.src = row.dataset.cover;
-    nowTitle.textContent = currentTrack.title;
-
-    // Botones según la pista
-    watchClip.hidden = !currentTrack.video;
-    openSpotify.hidden = !currentTrack.spotify;
-    if (currentTrack.spotify) {
-      openSpotify.href = `https://open.spotify.com/track/${currentTrack.spotify}`;
-    }
+    nowTitle.textContent = $("span", row).textContent;
+    openSpotify.href = `https://open.spotify.com/track/${row.dataset.spotify}`;
   };
 
   $$(".setlist__row").forEach((row) =>
@@ -282,24 +250,13 @@
 
       selectTrack(row);
 
-      if (row.dataset.audio) {
-        if (!sameTrack) {
-          player.src = row.dataset.audio;
-          player.currentTime = 0;
-        }
-        player.play().catch(() => deckPlayState(true)); // sin audio permitido: al menos gira
-      } else {
-        // Pista solo con videoclip: gira en seco, sin sonido
-        player.pause();
-        deckPlayState(true);
+      if (!sameTrack) {
+        player.src = row.dataset.audio;
+        player.currentTime = 0;
       }
+      player.play().catch(() => deckPlayState(true)); // sin audio permitido: al menos gira
     })
   );
-
-  watchClip.addEventListener("click", () => {
-    player.pause();
-    if (currentTrack.video) openVideo(currentTrack.video);
-  });
 
   /* ── ACTO III: TV retro ─────────────────────────────── */
   const tvScreen = $("#tvScreen");
@@ -325,24 +282,24 @@
   tvPlay.addEventListener("click", () => tvLoad(tvScreen.dataset.video || "D9d9pfnqhno", true));
   tvScreen.dataset.video = "D9d9pfnqhno";
 
+  // Cambiar de canal reproduce el video automáticamente (sin pulsar play)
   $$("#tvChannels button").forEach((btn, i) =>
     btn.addEventListener("click", () => {
       $$("#tvChannels button").forEach((b) => b.classList.remove("is-active"));
       btn.classList.add("is-active");
       const id = btn.dataset.video;
-      const hadIframe = !!$("iframe", tvScreen);
       tvOsd.textContent = `CH·0${i + 1}`;
       tvScreen.dataset.video = id;
 
       if (reduced) {
-        tvThumb.src = `../assets/img/video-${id}.jpg`;
-        tvLoad(id, hadIframe);
+        tvThumb.src = `assets/img/video-${id}.jpg`;
+        tvLoad(id, true);
         return;
       }
       tvStatic.classList.add("is-on");
       setTimeout(() => {
-        tvThumb.src = `../assets/img/video-${id}.jpg`;
-        tvLoad(id, hadIframe);
+        tvThumb.src = `assets/img/video-${id}.jpg`;
+        tvLoad(id, true);
         setTimeout(() => tvStatic.classList.remove("is-on"), 240);
       }, 320);
     })
@@ -374,12 +331,13 @@
     ring.style.transform = `rotateY(${angle.toFixed(2)}deg)`;
   })();
 
+  // Sin setPointerCapture: capturar el puntero se roba el click de las
+  // fotos y el visor nunca abría. El arrastre funciona igual.
   stage.addEventListener("pointerdown", (e) => {
     dragging = true;
     moved = 0;
     lastX = e.clientX;
     stage.classList.add("is-grabbing");
-    stage.setPointerCapture(e.pointerId);
   });
 
   stage.addEventListener("pointermove", (e) => {
@@ -396,10 +354,19 @@
   const endDrag = () => { dragging = false; stage.classList.remove("is-grabbing"); };
   stage.addEventListener("pointerup", endDrag);
   stage.addEventListener("pointercancel", endDrag);
+  stage.addEventListener("pointerleave", endDrag);
 
   $$(".ring__item").forEach((item) =>
     item.addEventListener("click", () => {
       if (moved > 8) return; // fue un arrastre, no un clic
+      const img = $("img", item);
+      openImage(img.src, img.alt);
+    })
+  );
+
+  /* ── Mosaico: todas las fotos → visor ───────────────── */
+  $$(".mosaic__item").forEach((item) =>
+    item.addEventListener("click", () => {
       const img = $("img", item);
       openImage(img.src, img.alt);
     })
@@ -458,12 +425,6 @@
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   };
-
-  function openVideo(id) {
-    const f = tpl.content.firstElementChild.cloneNode(true);
-    f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-    openLB(f);
-  }
 
   function openImage(src, alt) {
     const img = new Image();

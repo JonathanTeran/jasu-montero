@@ -1,77 +1,57 @@
-# Jasú Montero — Sitio oficial
+# Jasú Montero — Sitio Oficial · «La Función»
 
-Sitio web profesional para **Jasú Montero** (cantante, presentadora y actriz ecuatoriana).
-HTML + CSS + JS puro, sin frameworks ni build. Basta abrir `index.html` o servirlo
-con cualquier servidor estático.
+Sitio web profesional para **Jasú Montero** (cantante, presentadora y actriz
+ecuatoriana), presentado como una función de teatro interactiva.
+HTML + CSS + JS puro, sin frameworks ni build: basta abrir `index.html` o
+servirlo con cualquier servidor estático.
 
-## Dos versiones de diseño
+**En vivo:** https://jonathanteran.github.io/jasu-montero/
 
-| Versión | URL | Estilo |
-|---------|-----|--------|
-| **V1 Clásica** | `/` | Glam editorial (Bodoni, dorado) con 3 temas: noche / claro / blanco |
-| **V2 Neón** | `/v2/` | Neón-noir de club: duotono, slider de hero, collage rasgado, agenda de shows. Acento conmutable rosa / cian |
-| **V7 La Función** | `/v7/` | Experiencia teatral interactiva: telón de apertura con conteo, reflector que sigue al cursor, polvo dorado, carrera en tira horizontal fijada al scroll, tornamesa de vinilo **que suena** (17 pistas: 10 con adelanto de audio real de 30 s del catálogo de Spotify + 7 con videoclip), TV retro con cambio de canales (estática incluida), galería 3D arrastrable, boletos con código de barras, pase backstage y créditos de cine |
+## La experiencia
 
-> ⚠️ Los adelantos de audio (`assets/audio/preview-*.mp3`) son los clips públicos
-> de 30 s de Spotify, usados **solo como maqueta**. Antes del lanzamiento oficial,
-> reemplazarlos por audio licenciado por la artista o enlazar solo a Spotify.
-
-Cada versión enlaza a las otras desde el pie de página.
-(Las carpetas `v3/`–`v6/` son borradores locales de otra sesión de trabajo, aún sin publicar.)
+- **Telón de apertura** con conteo 0→100 y cortinas de terciopelo
+- **Hero** con su foto centrada sobre fondo difuminado y el nombre en cartel
+- **Acto I** — la carrera 2000→hoy en tira horizontal fijada al scroll
+- **Acto II** — tornamesa de vinilo **que suena**: 10 pistas de su Spotify con
+  adelantos reales de 30 s, portada en la etiqueta, aguja y ecualizador
+- **Acto III** — TV retro: cambiar de canal reproduce el video automáticamente
+  (5 videoclips reales de su canal de YouTube), con estática de transición
+- **Acto IV** — galería 3D arrastrable + mosaico de fotos, ambos con visor
+- **Acto V** — boletos de entrada con código de barras (se puede convertir en
+  venta real de entradas)
+- **Gran final** — pase backstage (formulario de contrataciones) y créditos de cine
 
 ## Estructura
 
 ```
-index.html              V1 — página única con todas las secciones
-assets/css/style.css    V1 — estilos y los 3 temas de color
-assets/js/main.js       V1 — temas, menú, animaciones, videos, formulario
-v2/index.html           V2 — versión neón (usa las mismas imágenes)
-v2/style.css            V2 — estilos neón + acentos rosa/cian
-v2/main.js              V2 — slider, acento, video destacado, booking
-assets/img/             Imágenes compartidas (ver nota abajo)
+index.html       Página única
+style.css        Estilos (tema teatral: Abril Fatface · Fraunces · Archivo)
+main.js          Interacciones (telón, tornamesa, TV, galería, visor, form)
+assets/img/      Fotos y portadas (ver nota)
+assets/audio/    Adelantos de 30 s (ver nota)
+v7/index.html    Redirección al sitio (enlaces antiguos compartidos)
+v3/–v6/          Borradores locales de diseño, no publicados
 ```
 
-## Temas de color
+## ⚠️ Material de ejemplo — reemplazar antes del lanzamiento
 
-Tres modos conmutables desde la barra superior (se recuerda la elección):
+- **Fotos** (`assets/img/`): tomadas del canal público de YouTube de Jasú y de
+  las portadas de Spotify, solo como maqueta. Reemplazar por las fotos
+  oficiales que entregue la artista (los huecos están comentados con
+  `REEMPLAZAR` en `index.html`).
+- **Audio** (`assets/audio/preview-*.mp3`): clips públicos de 30 s de Spotify,
+  solo para la demo. Para producción usar audio licenciado por ella o enlazar
+  únicamente a Spotify.
+- **Correos**: `contrataciones@jasumontero.com` es un marcador de posición.
+- **Formulario**: hoy abre el correo del visitante (mailto). Para envío real
+  sin servidor: crear formulario en formspree.io y poner su `action` en el
+  `<form id="passForm">`.
 
-| Tema     | Descripción                                              |
-|----------|----------------------------------------------------------|
-| `noche`  | Oscuro (por defecto) — la foto en clave alta "salta"     |
-| `claro`  | Champán cálido                                           |
-| `blanco` | Blanco galería, minimalista                              |
+## Pendientes / próximos pasos
 
-Los colores viven en `assets/css/style.css` bajo `html[data-theme="..."]`.
-
-## ⚠️ Imágenes — SOLO DE EJEMPLO
-
-Las fotos actuales se descargaron del canal público de YouTube de Jasú
-(avatar, banner y miniaturas de sus videos) **únicamente como maqueta**.
-Antes de publicar, reemplazarlas por las fotos oficiales que entregue ella:
-
-- `assets/img/jasu-retrato.jpg` — retrato del hero (ideal vertical o cuadrado, rostro arriba)
-- `assets/img/video-*.jpg` — miniaturas de videos y portadas del blog
-
-## Videos
-
-Los videos son reales, de su canal oficial `@JasuMonteroOficial`, con carga
-diferida (el iframe de YouTube solo se crea al hacer clic). Para cambiar un
-video basta editar el atributo `data-video="ID"` en `index.html`.
-
-## Formulario de contacto
-
-Sin backend: hoy abre el correo del visitante (mailto a la dirección del
-atributo `data-mailto` del `<form>`). Para envío real sin servidor:
-
-1. Crear un formulario en [formspree.io](https://formspree.io) (gratis).
-2. En el `<form id="contactForm">` poner `action="https://formspree.io/f/TU_ID"`
-   y `method="POST"`, y eliminar `data-mailto`.
-3. Quitar el manejador `submit` del formulario en `assets/js/main.js`.
-
-## Pendientes antes de publicar
-
-- [ ] Reemplazar fotos por las oficiales
-- [ ] Confirmar correos reales (hoy: `contrataciones@` / `prensa@jasumontero.com`)
+- [ ] Fotos y textos oficiales aprobados por Jasú
+- [ ] Correo real de contrataciones + Formspree
 - [ ] Confirmar enlaces de Facebook y TikTok
-- [ ] Redactar las entradas reales del blog (hoy son de ejemplo)
-- [ ] Conectar el formulario (Formspree o backend propio)
+- [ ] Si se aprueba: venta de boletos real (Eventbrite/PayPhone embebido en el Acto V)
+- [ ] **Migración a WordPress** (tema a medida con los mismos diseños) para que
+  el equipo de Jasú edite agenda, fotos y canciones sin tocar código
