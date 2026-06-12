@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎭</text></svg>">
 </head>
 <body data-loading>
@@ -22,7 +22,7 @@
     <div class="loader__curtain loader__curtain--l"></div>
     <div class="loader__curtain loader__curtain--r"></div>
     <div class="loader__center">
-      <p class="loader__kicker">Jasú Montero presenta</p>
+      <img class="loader__logo" src="assets/img/jasu-logo-blanco.png" alt="Jasú Montero">
       <p class="loader__count" id="loaderCount">0</p>
       <p class="loader__title">La función está por comenzar</p>
     </div>
@@ -37,7 +37,7 @@
 
   <!-- ════════ NAV ════════ -->
   <header class="nav" id="nav">
-    <a class="nav__brand" href="#inicio">Jasú <i>✦</i> Montero</a>
+    <a class="nav__brand" href="#inicio" aria-label="Jasú Montero — inicio"><img src="assets/img/jasu-logo-blanco.png" alt="Jasú Montero"></a>
     <nav class="nav__links" id="navLinks" aria-label="Navegación">
       <a href="#actos">El Show</a>
       <a href="#musica">Música</a>
@@ -98,7 +98,7 @@
           </article>
 
           <figure class="era era--photo">
-            <img src="assets/img/video-5gxNZZWFoOA.jpg" alt="Jasú en escena con su agrupación" loading="lazy">
+            <img src="assets/img/jasu-look-espejo.jpg" alt="Jasú Montero en camerino" loading="lazy">
             <figcaption>“El escenario me eligió a mí.”</figcaption>
           </figure>
 
@@ -115,7 +115,7 @@
           </article>
 
           <figure class="era era--photo">
-            <img src="assets/img/video-0Na_xJMcoZY.jpg" alt="Jasú Montero grabando" loading="lazy">
+            <img src="assets/img/jasu-look-rojo.jpg" alt="Jasú Montero entre bastidores" loading="lazy">
             <figcaption>Luces, cámara… y sabor.</figcaption>
           </figure>
 
@@ -228,32 +228,31 @@
       <div class="ring-stage" id="ringStage">
         <div class="ring" id="ring">
           <!-- REEMPLAZAR: fotos oficiales -->
-          <button class="ring__item" style="--i:0"><img src="assets/img/jasu-retrato.jpg" alt="Sesión editorial"></button>
-          <button class="ring__item" style="--i:1"><img src="assets/img/video-D9d9pfnqhno.jpg" alt="Me Siento Viva"></button>
-          <button class="ring__item" style="--i:2"><img src="assets/img/video-3-o8DnsMhy4.jpg" alt="Sola"></button>
-          <button class="ring__item" style="--i:3"><img src="assets/img/video--uuzJPT3FAs.jpg" alt="Egoísta"></button>
-          <button class="ring__item" style="--i:4"><img src="assets/img/video-Hvkt6ABrq0g.jpg" alt="Dolencias"></button>
-          <button class="ring__item" style="--i:5"><img src="assets/img/video-5gxNZZWFoOA.jpg" alt="Añoranzas de Mi Tierra"></button>
-          <button class="ring__item" style="--i:6"><img src="assets/img/video-0Na_xJMcoZY.jpg" alt="Todo es Plata"></button>
-          <button class="ring__item" style="--i:7"><img src="assets/img/video-I5m-soOpREM.jpg" alt="Sola versión Despecho"></button>
+          <button class="ring__item" style="--i:0"><img src="assets/img/jasu-look-blanco.jpg" alt="Sesión blanca — retrato completo"></button>
+          <button class="ring__item" style="--i:1"><img src="assets/img/jasu-look-diosa.jpg" alt="Sesión con tocado de joyas"></button>
+          <button class="ring__item" style="--i:2"><img src="assets/img/jasu-look-negro.jpg" alt="Vestido negro sobre fondo azul"></button>
+          <button class="ring__item" style="--i:3"><img src="assets/img/jasu-look-espejo.jpg" alt="Camerino con espejo dorado"></button>
+          <button class="ring__item" style="--i:4"><img src="assets/img/jasu-look-nube.jpg" alt="Entre telas blancas"></button>
+          <button class="ring__item" style="--i:5"><img src="assets/img/jasu-look-rojo.jpg" alt="Labios rojos entre bastidores"></button>
+          <button class="ring__item" style="--i:6"><img src="assets/img/jasu-retrato.jpg" alt="Sesión editorial"></button>
+          <button class="ring__item" style="--i:7"><img src="assets/img/jasu-completa.jpg" alt="Sesión blanca — plano amplio"></button>
         </div>
       </div>
 
       <!-- Mosaico: todas las fotos en cuadrados grandes, medianos y pequeños -->
       <div class="mosaic" id="mosaic" aria-label="Todas las fotos">
-        <!-- REEMPLAZAR: fotos oficiales de Jasú -->
+        <button class="mosaic__item mosaic__item--wide"><img src="assets/img/jasu-look-diosa.jpg" alt="Sesión con tocado de joyas" loading="lazy"></button>
+        <button class="mosaic__item mosaic__item--tall"><img src="assets/img/jasu-look-blanco.jpg" alt="Sesión blanca — retrato completo" loading="lazy"></button>
         <button class="mosaic__item mosaic__item--big"><img src="assets/img/jasu-retrato.jpg" alt="Jasú Montero — sesión editorial" loading="lazy"></button>
+        <button class="mosaic__item mosaic__item--tall"><img src="assets/img/jasu-look-rojo.jpg" alt="Labios rojos entre bastidores" loading="lazy"></button>
+        <button class="mosaic__item"><img src="assets/img/cover-5ENSrENQXPd5vJRsTKC2mO.jpg" alt="Portada: Pensarás en Mí" loading="lazy"></button>
+        <button class="mosaic__item mosaic__item--wide"><img src="assets/img/jasu-look-nube.jpg" alt="Entre telas blancas" loading="lazy"></button>
+        <button class="mosaic__item"><img src="assets/img/jasu-look-espejo.jpg" alt="Camerino con espejo dorado" loading="lazy"></button>
+        <button class="mosaic__item mosaic__item--tall"><img src="assets/img/jasu-look-negro.jpg" alt="Vestido negro sobre fondo azul" loading="lazy"></button>
         <button class="mosaic__item"><img src="assets/img/video-D9d9pfnqhno.jpg" alt="Rodaje de Me Siento Viva" loading="lazy"></button>
-        <button class="mosaic__item mosaic__item--tall"><img src="assets/img/cover-5ENSrENQXPd5vJRsTKC2mO.jpg" alt="Portada: Pensarás en Mí" loading="lazy"></button>
-        <button class="mosaic__item"><img src="assets/img/video-3-o8DnsMhy4.jpg" alt="Video Sola" loading="lazy"></button>
-        <button class="mosaic__item mosaic__item--wide"><img src="assets/img/video-Hvkt6ABrq0g.jpg" alt="Video Dolencias" loading="lazy"></button>
-        <button class="mosaic__item"><img src="assets/img/cover-3gxCRVsxucTW6cRqtmPitv.jpg" alt="Portada: Medley de Rockolas" loading="lazy"></button>
-        <button class="mosaic__item"><img src="assets/img/video--uuzJPT3FAs.jpg" alt="Video Egoísta" loading="lazy"></button>
-        <button class="mosaic__item mosaic__item--tall"><img src="assets/img/video-I5m-soOpREM.jpg" alt="Sola versión Despecho" loading="lazy"></button>
-        <button class="mosaic__item"><img src="assets/img/cover-646jgrttEv6iDk1CYdEQwc.jpg" alt="Portada: Mix Puro Despecho" loading="lazy"></button>
-        <button class="mosaic__item mosaic__item--wide"><img src="assets/img/video-5gxNZZWFoOA.jpg" alt="Añoranzas de Mi Tierra" loading="lazy"></button>
-        <button class="mosaic__item"><img src="assets/img/video-0Na_xJMcoZY.jpg" alt="Todo es Plata" loading="lazy"></button>
+        <button class="mosaic__item mosaic__item--wide"><img src="assets/img/jasu-completa.jpg" alt="Sesión blanca — plano amplio" loading="lazy"></button>
         <button class="mosaic__item"><img src="assets/img/cover-28wF7ECVL7RbqwxLyugJZh.jpg" alt="Portada: Yo Te Espero" loading="lazy"></button>
+        <button class="mosaic__item"><img src="assets/img/video-5gxNZZWFoOA.jpg" alt="Añoranzas de Mi Tierra" loading="lazy"></button>
       </div>
     </section>
 
@@ -364,7 +363,7 @@
       </ul>
     </div>
     <div class="credits__base">
-      <p class="credits__brand">Jasú ✦ Montero</p>
+      <p class="credits__brand"><img src="assets/img/jasu-logo-blanco.png" alt="Jasú Montero"></p>
       <nav class="credits__nav" aria-label="Pie">
         <a href="#inicio">Inicio</a><a href="#actos">El Show</a><a href="#musica">Música</a>
         <a href="#tv">TV</a><a href="#galeria">Galería</a><a href="#backstage">Backstage</a>
@@ -411,6 +410,6 @@
       allowfullscreen></iframe>
   </template>
 
-  <script src="main.js?v=2" defer></script>
+  <script src="main.js?v=3" defer></script>
 </body>
 </html>
