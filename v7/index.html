@@ -55,33 +55,33 @@
 
     <!-- ════════ ACTO 0 · ESCENARIO ════════ -->
     <section class="hero" id="inicio">
+      <!-- Foto a sangre completa (REEMPLAZAR por foto oficial de escenario) -->
+      <div class="hero__bg" aria-hidden="true">
+        <img src="../assets/img/jasu-retrato.jpg" alt="" fetchpriority="high">
+      </div>
+
       <canvas class="hero__dust" id="dust" aria-hidden="true"></canvas>
       <span class="hero__beam hero__beam--l" aria-hidden="true"></span>
       <span class="hero__beam hero__beam--r" aria-hidden="true"></span>
 
-      <p class="hero__kicker reveal-letters" id="heroKicker">Función única · Guayaquil · Ecuador</p>
+      <p class="hero__kicker">Función única · Guayaquil · Ecuador</p>
 
-      <div class="hero__stage">
-        <h1 class="hero__back" id="titleBack" aria-label="Jasú">Jasú</h1>
-
-        <figure class="hero__figure">
-          <span class="hero__halo" aria-hidden="true"></span>
-          <!-- REEMPLAZAR: foto oficial de Jasú -->
-          <img src="../assets/img/jasu-retrato.jpg" alt="Jasú Montero en escena" fetchpriority="high">
-        </figure>
-
-        <h1 class="hero__front" id="titleFront" aria-label="Montero">Montero</h1>
-      </div>
-
-      <p class="hero__roles">Cantante <i>✦</i> Presentadora <i>✦</i> Actriz</p>
-
-      <div class="hero__cta">
-        <a href="#actos" class="btn-gala" data-magnet>Que comience el show</a>
-        <div class="eq is-on" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="hero__name">
+        <h1 class="hero__caps" id="titleBack" aria-label="Jasú">Jasú</h1>
+        <p class="hero__script" id="titleFront" aria-label="Montero">Montero</p>
+        <p class="hero__roles">Cantante <i>✦</i> Presentadora <i>✦</i> Actriz</p>
+        <div class="hero__cta">
+          <a href="#actos" class="btn-gala" data-magnet>Que comience el show</a>
+          <div class="eq is-on" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
       </div>
 
       <!-- Oscuridad con agujero de reflector que sigue al cursor -->
       <div class="hero__spot" id="heroSpot" aria-hidden="true"></div>
+
+      <a class="hero__down" href="#actos" aria-label="Bajar al show">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
     </section>
 
     <!-- ════════ ACTO I · LA CARRERA (tira horizontal fijada) ════════ -->
