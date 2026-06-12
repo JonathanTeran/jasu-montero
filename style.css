@@ -1555,6 +1555,28 @@ body.show-on .ltr {
 
 .credits__spark { color: var(--ambar); width: 11px; height: 11px; }
 
+/* Crédito AmePhia Software Solutions */
+.credits__dev {
+  display: inline-flex;
+  align-items: center;
+  gap: .38em;
+  color: var(--marfil) !important;
+  font-weight: 600;
+  letter-spacing: .02em;
+  vertical-align: -4px;
+  transition: opacity .3s;
+}
+
+.credits__dev:hover { opacity: .8; }
+
+.credits__dev-mark {
+  width: 19px;
+  height: 18px;
+  filter: drop-shadow(0 0 8px rgba(47, 155, 242, .45));
+}
+
+.credits__dev b { font-weight: 700; }
+
 @keyframes latido {
   0%, 100% { transform: scale(1); }
   12%      { transform: scale(1.25); }
