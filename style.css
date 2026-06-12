@@ -1577,33 +1577,19 @@ body.show-on .ltr {
 .credits__dev {
   display: inline-flex;
   align-items: center;
-  gap: .5em;
-  padding: .5em 1.25em .5em 1em;
-  border-radius: 999px;
-  border: 1px solid rgba(47, 155, 242, .45);
-  background: linear-gradient(160deg, rgba(31, 123, 255, .16), rgba(47, 155, 242, .05) 60%);
-  box-shadow: 0 0 22px -6px rgba(47, 155, 242, .55),
-              inset 0 1px 0 rgba(255, 255, 255, .08);
-  transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
-  animation: amephiaGlow 3s ease-in-out infinite;
+  gap: .45em;
+  transition: transform .3s var(--ease), filter .3s;
 }
 
 .credits__dev:hover {
-  transform: translateY(-3px) scale(1.04);
-  border-color: rgba(98, 196, 248, .9);
-  box-shadow: 0 8px 34px -8px rgba(47, 155, 242, .85);
-  animation-play-state: paused;
-}
-
-@keyframes amephiaGlow {
-  0%, 100% { box-shadow: 0 0 18px -7px rgba(47, 155, 242, .5), inset 0 1px 0 rgba(255, 255, 255, .08); }
-  50%      { box-shadow: 0 0 30px -5px rgba(47, 155, 242, .8), inset 0 1px 0 rgba(255, 255, 255, .08); }
+  transform: translateY(-2px);
+  filter: brightness(1.15);
 }
 
 .credits__dev-mark {
-  width: 26px;
-  height: 24px;
-  filter: drop-shadow(0 0 9px rgba(47, 155, 242, .55));
+  width: 22px;
+  height: 20px;
+  filter: drop-shadow(0 0 6px rgba(47, 155, 242, .35));
 }
 
 .credits__dev-name {
