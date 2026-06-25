@@ -46,7 +46,7 @@
       <a href="#boletos">Boletos</a>
     </nav>
     <div class="nav__right">
-      <a class="nav__cta" href="#backstage" data-magnet>Backstage</a>
+      <a class="nav__cta" href="#backstage" data-magnet>Contrato</a>
       <button class="nav__burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
     </div>
   </header>
@@ -67,11 +67,12 @@
       <p class="hero__kicker">Función única · Guayaquil · Ecuador</p>
 
       <div class="hero__name">
-        <h1 class="hero__caps" id="titleBack" aria-label="Jasú">Jasú</h1>
-        <p class="hero__script" id="titleFront" aria-label="Montero">Montero</p>
+        <h1 class="hero__logo">
+          <img src="assets/img/jasu-logo-blanco.png" alt="Jasú Montero" width="504" height="400">
+        </h1>
         <p class="hero__roles">Cantante <i>✦</i> Presentadora <i>✦</i> Actriz</p>
         <div class="hero__cta">
-          <a href="#actos" class="btn-gala" data-magnet>Que comience el show</a>
+          <a href="#actos" id="showStart" class="btn-gala" data-magnet>Que comience el show</a>
           <div class="eq is-on" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
         </div>
       </div>
@@ -128,7 +129,7 @@
           <article class="era">
             <span class="era__year">2016</span>
             <h3>De Casa en Casa</h3>
-            <p>Se une al matinal de TC Televisión y desde entonces entra, cada mañana, a los hogares del Ecuador.</p>
+            <p>Se une a un matinal de televisión nacional y desde entonces entra, cada mañana, a los hogares del Ecuador.</p>
           </article>
 
           <article class="era era--final">
@@ -259,7 +260,7 @@
     <section class="tickets" id="boletos">
       <header class="sec-head">
         <p class="kicker">Acto V · Agenda</p>
-        <h2 class="title-xl">Tu <em>boleto</em> de entrada</h2>
+        <h2 class="title-xl">Tu <em>experiencia</em> VIP</h2>
       </header>
 
       <div class="tickets__row">
@@ -268,9 +269,9 @@
           <div class="ticket__main">
             <p class="ticket__tag">TV · En vivo</p>
             <h3>De Casa en Casa</h3>
-            <p class="ticket__where">TC Televisión</p>
+            <p class="ticket__where">Televisión nacional</p>
             <p class="ticket__when">Lunes a viernes · Mañanas</p>
-            <a class="ticket__btn" href="https://www.tctelevision.com/" target="_blank" rel="noopener" data-magnet>Ver señal</a>
+            <a class="ticket__btn" href="https://www.youtube.com/@JasuMonteroOficial" target="_blank" rel="noopener" data-magnet>Ver clips</a>
           </div>
           <div class="ticket__stub">
             <span class="ticket__barcode" aria-hidden="true"></span>
@@ -313,7 +314,7 @@
       <div class="backstage__grid">
         <div class="backstage__copy">
           <p class="kicker">Gran final</p>
-          <h2 class="title-xl">Pase al <em>backstage</em></h2>
+          <h2 class="title-xl">Tu <em>contrato</em></h2>
           <p>Contrataciones, prensa, marcas o colaboraciones:
           completa tu pase y el equipo responde en menos de 48 horas.</p>
           <p class="backstage__mail">contrataciones@jasumontero.com</p>
@@ -328,7 +329,7 @@
         <!-- Sin backend: abre el correo del visitante (ver README para Formspree) -->
         <form class="pass" id="passForm" data-mailto="contrataciones@jasumontero.com" data-tilt>
           <span class="pass__hole" aria-hidden="true"></span>
-          <p class="pass__head">Pase Backstage <b>VIP</b></p>
+          <p class="pass__head">Pase <b>VIP</b></p>
           <label class="pass__field">
             <span>Nombre</span>
             <input type="text" name="nombre" required placeholder="Tu nombre" autocomplete="name">
@@ -357,7 +358,7 @@
         <li><b>Dirección artística</b> La Reina de la Rockola</li>
         <li><b>Producción</b> Equipo JM · Guayaquil</li>
         <li><b>Música</b> Me Siento Viva · Sola · Egoísta · Antídoto</li>
-        <li><b>Televisión</b> De Casa en Casa · TC</li>
+        <li><b>Televisión</b> De Casa en Casa</li>
         <li><b>Agradecimientos</b> A todo el público del Ecuador ♥</li>
       </ul>
     </div>
@@ -365,7 +366,7 @@
       <p class="credits__brand"><img src="assets/img/jasu-logo-blanco.png" alt="Jasú Montero"></p>
       <nav class="credits__nav" aria-label="Pie">
         <a href="#inicio">Inicio</a><a href="#actos">El Show</a><a href="#musica">Música</a>
-        <a href="#tv">TV</a><a href="#galeria">Galería</a><a href="#backstage">Backstage</a>
+        <a href="#tv">TV</a><a href="#galeria">Galería</a><a href="#backstage">Contrato</a>
       </nav>
       <div class="credits__made">
         <span>Desarrollado con <svg class="credits__heart" viewBox="0 0 24 24" aria-label="amor" role="img"><path d="M12 21s-7.6-4.7-10.1-9.3C.3 8 2 4.7 5.4 4.2c2-.3 4 .7 5 2.4L12 9.4l1.6-2.8c1-1.7 3-2.7 5-2.4 3.4.5 5.1 3.8 3.5 7.5C19.6 16.3 12 21 12 21z" fill="currentColor"/></svg> por</span>

@@ -24,14 +24,21 @@
       el.appendChild(s);
     });
   };
-  split($("#titleBack"));
-  split($("#titleFront"));
+  const _titleBack = $("#titleBack");
+  const _titleFront = $("#titleFront");
+  if (_titleBack) split(_titleBack);
+  if (_titleFront) split(_titleFront);
 
   /* ── Telón de apertura ──────────────────────────────── */
   const loader = $("#loader");
   const count = $("#loaderCount");
 
   let curtainOpened = false;
+  const curtainHooks = [];
+  const onCurtainOpen = (fn) => {
+    if (curtainOpened) fn();
+    else curtainHooks.push(fn);
+  };
   const openCurtain = () => {
     if (curtainOpened) return;
     curtainOpened = true;
@@ -39,6 +46,7 @@
     loader.classList.add("is-done");
     document.body.removeAttribute("data-loading");
     document.body.classList.add("show-on");
+    curtainHooks.forEach((fn) => fn());
     setTimeout(() => loader.remove(), 1600);
   };
 
@@ -257,6 +265,45 @@
       player.play().catch(() => deckPlayState(true)); // sin audio permitido: al menos gira
     })
   );
+
+  /* ── Audio de apertura: jingle al abrirse el telón ───── */
+  const intro = new Audio("assets/audio/intro-quiero-jasu.mp3");
+  intro.preload = "auto";
+  intro.volume = 0.9;
+  let introPlayed = false;
+  let gestureArmed = false;
+
+  function armGesture() {
+    if (gestureArmed) return;
+    gestureArmed = true;
+    const go = () => {
+      ["pointerdown", "keydown", "touchstart"].forEach((ev) =>
+        document.removeEventListener(ev, go)
+      );
+      playIntro();
+    };
+    ["pointerdown", "keydown", "touchstart"].forEach((ev) =>
+      document.addEventListener(ev, go, { passive: true })
+    );
+  }
+
+  const playIntro = () => {
+    if (introPlayed) return;
+    introPlayed = true;
+    intro.currentTime = 0;
+    intro.play().catch(() => {
+      // El navegador bloqueó el autoplay: reintenta al primer gesto del usuario
+      introPlayed = false;
+      armGesture();
+    });
+  };
+
+  // Suena al abrirse el telón; si el navegador lo bloquea, al primer clic/tecla
+  onCurtainOpen(playIntro);
+
+  // El botón "Que comience el show" también dispara el jingle (es un gesto válido)
+  const showStart = $("#showStart");
+  if (showStart) showStart.addEventListener("click", playIntro);
 
   /* ── ACTO III: TV retro ─────────────────────────────── */
   const tvScreen = $("#tvScreen");
