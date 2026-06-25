@@ -248,17 +248,18 @@
 
   $$(".setlist__row").forEach((row) =>
     row.addEventListener("click", () => {
-      const sameTrack = row.classList.contains("is-active");
+      // ¿Está REALMENTE cargado este tema? (no basta la clase visual is-active)
+      const isLoaded = !!player.src && player.src.endsWith(row.dataset.audio);
 
-      // Mismo tema sonando → pausa (la aguja sube)
-      if (sameTrack && !player.paused) {
+      // Mismo tema cargado y sonando → pausa (la aguja sube)
+      if (isLoaded && !player.paused) {
         player.pause();
         return;
       }
 
       selectTrack(row);
 
-      if (!sameTrack) {
+      if (!isLoaded) {
         player.src = row.dataset.audio;
         player.currentTime = 0;
       }
