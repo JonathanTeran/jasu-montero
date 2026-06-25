@@ -1765,3 +1765,149 @@ body.show-on .ltr {
   .hero__cta { flex-direction: column; gap: 1rem; }
   .credits__roll { height: 160px; }
 }
+
+/* ── ACTO VI · Redes (TikTok en vivo + Instagram) ──────────────── */
+.social { padding: clamp(3rem, 8vw, 7rem) clamp(1.2rem, 6vw, 5rem); }
+
+.social__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: clamp(1.1rem, 2.6vw, 1.8rem);
+  max-width: 1080px;
+  margin: clamp(1.8rem, 4vw, 3rem) auto 0;
+  align-items: stretch;
+}
+
+.social__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--marfil) 4%, transparent);
+  overflow: hidden;
+}
+
+.social__bar {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1.1rem 1.3rem;
+}
+
+.social__icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: var(--marfil);
+  background: color-mix(in srgb, var(--marfil) 8%, transparent);
+  border: 1px solid var(--line);
+}
+.social__icon svg { width: 23px; height: 23px; }
+
+.social__name {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--oro-suave);
+}
+.social__handle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--marfil);
+  text-decoration: none;
+}
+a.social__handle:hover { color: var(--ambar); }
+
+/* TikTok — contenedor del embed oficial */
+.social__card--tiktok .social__embed {
+  flex: 1;
+  display: grid;
+  place-items: start center;
+  padding: 0 .9rem 1rem;
+  min-height: 560px;
+}
+.social__embed .tiktok-embed {
+  width: 100% !important;
+  margin: 0 auto !important;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.social__embed iframe { border-radius: 16px; max-width: 100%; }
+.social__embed .tiktok-embed > section a {
+  color: var(--ambar);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+/* Instagram — tarjeta con foto */
+.social__card--ig {
+  text-decoration: none;
+  min-height: 560px;
+  justify-content: space-between;
+}
+.social__igphoto {
+  position: absolute;
+  inset: 0;
+  background: url("assets/img/jasu-retrato.jpg") center 22% / cover no-repeat;
+  transition: transform .8s ease;
+}
+.social__card--ig:hover .social__igphoto { transform: scale(1.06); }
+.social__igveil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(8, 5, 6, .94) 3%, rgba(8, 5, 6, .2) 48%, rgba(8, 5, 6, .55)),
+    linear-gradient(125deg, rgba(214, 41, 118, .34), rgba(150, 47, 191, .22) 45%, rgba(79, 91, 213, .3));
+}
+.social__bar--over { position: relative; z-index: 2; }
+.social__icon--ig {
+  border: none;
+  color: #fff;
+  background: linear-gradient(45deg, #feda75, #fa7e1e 28%, #d62976 58%, #962fbf 78%, #4f5bd5);
+}
+.social__igfoot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem 1.6rem;
+}
+.social__igtitle {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.4vw, 1.95rem);
+  line-height: 1.15;
+  color: var(--marfil);
+  max-width: 20ch;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, .7);
+}
+.social__igcta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  align-self: flex-start;
+  padding: .72rem 1.25rem;
+  border-radius: 999px;
+  background: var(--marfil);
+  color: var(--negro);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background .3s, transform .3s;
+}
+.social__card--ig:hover .social__igcta { background: var(--ambar); transform: translateX(4px); }
+.social__igcta svg { width: 16px; height: 16px; }
+
+@media (max-width: 880px) {
+  .social__grid { grid-template-columns: 1fr; }
+  .social__card--tiktok .social__embed { min-height: 0; padding-bottom: 1rem; }
+  .social__card--ig { min-height: 440px; }
+}
